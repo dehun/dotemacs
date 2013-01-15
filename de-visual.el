@@ -2,9 +2,9 @@
 
 ;; color theme
 (require 'color-theme)
-(require 'zenburn)
+(require 'de-color-theme-zenburn)
 (color-theme-initialize)
-(color-theme-zenburn)
+(color-theme-de-zenburn)
 
 ;; highlist line
 (global-hl-line-mode)
