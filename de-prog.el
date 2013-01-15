@@ -32,5 +32,8 @@
      '(help-at-pt-display-when-idle '(flymake-overlay)))
 
 
+;; our 'project' system
+(require 'de-proj)
+
 ;; provide at last
 (provide 'de-prog)
