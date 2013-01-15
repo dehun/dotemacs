@@ -1,0 +1,20 @@
+(defun de-open-with-dired-list (path new-buffer-name files-to-open-regexp)
+  (interactive)
+  (find-dired path (format "-type f -regex \"%s\"" files-to-open-regexp))
+  (kill-buffer new-buffer-name)
+  (rename-buffer new-buffer-name))
+
+(defun de-open-cpp-proj ()
+  (interactive)
+  (let ((path (read-file-name "path to proj dir: ")))
+    (de-open-with-dired-list path "*all*" ".+\\.[ch].?.?$")
+    (de-open-with-dired-list path "*sources*" ".+\\.c.?.?$")
+    (de-open-with-dired-list path "*headers*" ".+\\.h.?.?$")
+    (de-open-with-dired-list path "*makes*" ".+CMakeLists\\\\.txt$")))
+
+(defun de-open-py-proj ()
+  (interactive)
+  (let ((path (read-file-name "path to proj dir: ")))
+    (de-open-with-dired-list path "*sources*" ".+\\.py$")))
+
+(provide 'de-proj)
