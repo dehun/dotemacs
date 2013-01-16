@@ -1,4 +1,4 @@
-(defun dired-open-marked-files ()
+(defun de-dired-open-marked-files ()
    (interactive)
    (let ((distinguish-one-marked nil))
      (mapc 'find-file

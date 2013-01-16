@@ -4,7 +4,7 @@
 (require 'de-interface)
 (require 'de-doc)
 (require 'de-visual)
-(require 'de-dired-extensions)
+(require 'de-files)
 (require 'de-vcs)
 (require 'de-prog)
 
