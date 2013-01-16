@@ -1,5 +1,10 @@
 ;; everything related to programming
 
+
+;; indent
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 4)
+
 ;; cedet 
 (add-to-list 'load-path "~/.emacs.d/site-lisp/cedet-1.1/")
 (load-file "~/.emacs.d/site-lisp/cedet-1.1/common/cedet.el")
