@@ -1,3 +1,9 @@
+;; everything about the buffers
+
+;; ibuffer
+(require 'ibuffer)
+(defalias 'list-buffers 'ibuffer)
+
 ;; everything related to buffers and files
 (require 'ido)
 (ido-mode t)

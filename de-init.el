@@ -2,11 +2,14 @@
 
 ;; require main de modules
 (require 'de-interface)
-(require 'de-doc)
 (require 'de-visual)
 (require 'de-files)
+
+(require 'de-doc)
 (require 'de-vcs)
 (require 'de-prog)
+(require 'de-chat)
+(require 'de-www)
 
 
 (provide 'de-init)
