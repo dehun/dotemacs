@@ -1,10 +1,5 @@
 ;; everything related to emacs user interface
 
-;; ibuffer
-(require 'ibuffer)
-
-(defalias 'list-buffers 'ibuffer)
-
 ;; disable that fucking exit key
 (defun nothing () ())
 (global-set-key "\C-x\C-c" 'nothing)
@@ -26,5 +21,6 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
+(require 'de-buffers)
 
 (provide 'de-interface)

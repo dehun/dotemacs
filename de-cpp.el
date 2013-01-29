@@ -21,11 +21,12 @@
   (linum-mode)
   (local-set-key "\C-cf" 'eassist-list-methods)
   (local-set-key "\C-cg" 'eassist-jump-to-method))
-(add-hook 'c++-mode-common-hook 'my-c-mode-hook)
-(add-hook 'c-mode-common-hook 'my-c-mode-hook)
+;;(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+;;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
+(add-hook 'c++-mode-common-hook 'my-c-mode-with-tabs-common-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-with-tabs-common-hook)
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 
 ;; provide
