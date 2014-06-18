@@ -1,5 +1,5 @@
 ;; psvn
-(require 'psvn)
+;;(require 'psvn)
 
 ;; diff
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)

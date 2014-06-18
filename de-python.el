@@ -1,11 +1,18 @@
 ;; python related stuff
 
-(require 'python-mode)
+;;(require 'python-mode)
 (setq py-load-pymacs-p t)
 (setq py-complete-set-keymap-p t)
 
+(setq jedi:setup-keys t)
+(require 'jedi)
+
+
+
 (defun de-python-mode-hook ()
   (message "python hacks is loading...")
+  (jedi:setup)
+  (jedi-mode)
   (flymake-mode 1)
   (local-set-key "\C-c\C-c" 'flymake-mode)
   (local-set-key "\C-c\C-b" 'py-send-buffer)

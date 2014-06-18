@@ -7,9 +7,10 @@
 
 (require 'de-doc)
 (require 'de-vcs)
+(require 'de-anything)
 (require 'de-prog)
-(require 'de-chat)
-(require 'de-www)
+;;(require 'de-chat)
+;;(require 'de-www)
 
 
 (provide 'de-init)

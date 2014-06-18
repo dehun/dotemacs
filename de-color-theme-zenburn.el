@@ -26,18 +26,18 @@
 
 (require 'color-theme)
 
-(defvar zenburn-fg "#dcdccc")
+(defvar zenburn-fg "#effefe")
 (defvar zenburn-bg-1 "#010101")
-(defvar zenburn-bg "#030303")
+(defvar zenburn-bg "#0a0303")
 (defvar zenburn-bg+1 "#0f0f0f")
 (defvar zenburn-bg+2 "#1a1a1a")
-(defvar zenburn-red+1 "#dca3a3")
-(defvar zenburn-red "#cc9393")
+(defvar zenburn-red+1 "#ecb3b3")
+(defvar zenburn-red "#dca3a3")
 (defvar zenburn-red-1 "#bc8383")
 (defvar zenburn-red-2 "#ac7373")
 (defvar zenburn-red-3 "#9c6363")
 (defvar zenburn-red-4 "#8c5353")
-(defvar zenburn-orange "#dfaf8f")
+(defvar zenburn-orange "#efbf9f")
 (defvar zenburn-orange+1 "#ffc9a4")
 (defvar zenburn-yellow "#f0dfaf")
 (defvar zenburn-yellow-1 "#e0cf9f")
@@ -1151,4 +1151,3 @@ static char *gnus-pointer[] = {
 (defalias 'de-color-theme-zenburn #'color-theme-de-zenburn)
 
 (provide 'de-color-theme-zenburn)
-

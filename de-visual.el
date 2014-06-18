@@ -5,11 +5,13 @@
 (require 'de-color-theme-zenburn)
 (color-theme-initialize)
 (color-theme-de-zenburn)
+;;(color-theme-pok-wog)
+
 
 ;; highlist line
 (global-hl-line-mode)
 (set-face-attribute hl-line-face nil :underline nil)
-(set-face-background 'hl-line "#100505")
+(set-face-background 'hl-line "#052005")
 
 ;; cursor
 (setq cursor-type 'hollow)

@@ -5,13 +5,13 @@
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 4)
 
-;; cedet 
+;; cedet
 (add-to-list 'load-path "~/.emacs.d/site-lisp/cedet-1.1/")
-(load-file "~/.emacs.d/site-lisp/cedet-1.1/common/cedet.el")
+;;(load-file "~/.emacs.d/site-lisp/cedet-1.1/common/cedet.el")
 (require 'cedet)
 (require 'semantic)
 (require 'srecode)
-(semantic-load-enable-excessive-code-helpers)
+;;(semantic-load-enable-excessive-code-helpers)
 (global-semantic-stickyfunc-mode -1)
 (global-semantic-decoration-mode -1)
 (global-semantic-idle-scheduler-mode)
@@ -24,7 +24,7 @@
 (require 'ecb)
 
 ;; eassist
-(require 'eassist)
+;;(require 'eassist)
 
 ;; different languages customizations
 (require 'de-cpp)
@@ -39,6 +39,20 @@
 
 ;; our 'project' system
 (require 'de-proj)
+
+
+(defadvice show-paren-function
+  (after show-matching-paren-offscreen activate)
+  "If the matching paren is offscreen, show the matching line in the
+        echo area. Has no effect if the character before point is not of
+        the syntax class ')'."
+  (interactive)
+  (let* ((cb (char-before (point)))
+         (matching-text (and cb
+                             (char-equal (char-syntax cb) ?\) )
+                             (blink-matching-open))))
+    (when matching-text (message matching-text))))
+
 
 ;; provide at last
 (provide 'de-prog)
