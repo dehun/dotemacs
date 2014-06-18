@@ -17,6 +17,11 @@
 (setq wg-morph-on nil)
 (workgroups-mode t)
 
+;;ace jump mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c C-SPC") 'ace-jump-word-mode)
+
+
 ;; undo three
 (require 'undo-tree)
 (global-undo-tree-mode)

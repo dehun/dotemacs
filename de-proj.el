@@ -7,10 +7,11 @@
 (defun de-open-cpp-proj ()
   (interactive)
   (let ((path (read-file-name "path to proj dir: ")))
-    (de-open-with-dired-list path "*all*" ".+\\.[ch].?.?$")
-    (de-open-with-dired-list path "*sources*" ".+\\.c.?.?$")
-    (de-open-with-dired-list path "*headers*" ".+\\.h.?.?$")
-    (de-open-with-dired-list path "*makes*" ".+CMakeLists\\\\.txt$")))
+    (de-open-with-dired-list path "*all*" ".+\\.[ch][a-zA-Z]?[a-zA-Z]?$")
+;;    (de-open-with-dired-list path "*sources*" ".+\\.c[a-zA-Z]?[a-zA-Z]?$")
+;;    (de-open-with-dired-list path "*headers*" ".+\\.h[a-zA-Z]?[a-zA-Z]?$")
+;;    (de-open-with-dired-list path "*makes*" ".+CMakeLists\\\\.txt$"))
+  ))
 
 ;; python
 (defun de-open-py-proj ()
