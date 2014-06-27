@@ -9,7 +9,7 @@
 (require 'de-vcs)
 (require 'de-anything)
 (require 'de-prog)
-;;(require 'de-chat)
+(require 'de-chat)
 ;;(require 'de-www)
 
 

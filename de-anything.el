@@ -80,7 +80,7 @@
   (lambda() (interactive)
     (anything
      :prompt "Switch to: "
-     :candidate-number-limit 10                 ;; up to 10 of each
+     :candidate-number-limit 100                 ;; up to 10 of each
      :sources
      '( anything-c-source-occur))))            ;; use 'locate'
 
