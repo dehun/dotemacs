@@ -86,15 +86,17 @@
 
 
 ;; info
+
+(require 'de-cpp)
 (global-set-key (kbd "C-c I")  ;; i -> info
   (lambda () (interactive)
     (anything
       :prompt "Info about: "
-      :candidate-number-limit 3
+      :candidate-number-limit 100
       :sources
-      '( anything-c-source-info-libc             ;; glibc docs
-         anything-c-source-man-pages             ;; man pages
-         anything-c-source-info-emacs))))        ;; emacs
+         '(anything-c-source-man-pages
+           anything-c-source-boost-html))))
+
 
 ;; dummy
 (defun anything-c-define-dummy-source (name func &rest other-attrib)
@@ -162,6 +164,7 @@
 
 ;; fuzzy match
 (require 'anything-match-plugin)
+
 
 
 (provide 'de-anything)

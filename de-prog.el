@@ -54,5 +54,12 @@
     (when matching-text (message matching-text))))
 
 
+;; notifications on compilation finished
+(require 'de-notifications)
+(de-notify-init)
+(defun compilation-finished-hook (buf status)
+  (de-notify "emacs" (concat "compilation finished with status: " status)))
+(add-hook 'compilation-finish-functions #'compilation-finished-hook)
+
 ;; provide at last
 (provide 'de-prog)
