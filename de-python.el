@@ -55,4 +55,22 @@
 ; try to automagically figure out indentation
 (setq py-smart-indentation t)
 
+
+;; documentation
+(require 'w3m)
+(require 'de-files)
+(defvar python-documentation-directory
+  "/usr/share/doc/python2.7/html/"
+  "defines python docs directory location")
+    
+(defvar anything-c-source-python-html
+  '((name . "python html documentation")
+    (requires-pattern . 3)
+    (candidates . (lambda ()
+                    (recursive-file-list python-documentation-directory)))
+    (delayed)
+    (action . (lambda (entry)
+                (w3m-browse-url entry)))))
+
+
 (provide 'de-python)

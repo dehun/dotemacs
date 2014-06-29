@@ -42,26 +42,11 @@
 
 ;; boost documentation
 (require 'w3m)
+(require 'de-files)
 
 (defvar boost-documentation-directory
   "/usr/share/doc/libboost1.55-doc/"
   "defines boost directory location")
-
-
-(defun recursive-file-list (dir)
-  (let ((files-list '())
-        (current-entries (directory-files dir t)))
-    (dolist (entry current-entries)
-      (cond ((and (file-regular-p entry)
-                  (string-match "html?$" entry))
-             (setq files-list
-                   (cons entry files-list)))
-            ((and (file-directory-p entry)
-                  (not (string-equal ".." (substring entry -2)))
-                  (not (string-equal "." (substring entry -1))))
-             (setq files-list (append files-list (recursive-file-list entry))))))
-      files-list))
-
 
 (defvar anything-c-source-boost-html
   '((name . "boost html documentation")
@@ -71,7 +56,6 @@
     (delayed)
     (action . (lambda (entry)
                 (w3m-browse-url entry)))))
-
 
 ;; provide
 (provide 'de-cpp)

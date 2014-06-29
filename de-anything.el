@@ -85,18 +85,6 @@
      '( anything-c-source-occur))))            ;; use 'locate'
 
 
-;; info
-
-(require 'de-cpp)
-(global-set-key (kbd "C-c I")  ;; i -> info
-  (lambda () (interactive)
-    (anything
-      :prompt "Info about: "
-      :candidate-number-limit 100
-      :sources
-         '(anything-c-source-man-pages
-           anything-c-source-boost-html))))
-
 
 ;; dummy
 (defun anything-c-define-dummy-source (name func &rest other-attrib)
