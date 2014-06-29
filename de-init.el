@@ -5,10 +5,11 @@
 (require 'de-visual)
 (require 'de-files)
 
-(require 'de-doc)
+
 (require 'de-vcs)
 (require 'de-anything)
 (require 'de-prog)
+(require 'de-doc)
 (require 'de-chat)
 ;;(require 'de-www)
 
