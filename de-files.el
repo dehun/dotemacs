@@ -9,6 +9,8 @@
 (setq ido-use-filename-at-point 'guess)
 (ido-mode t)
 
+
+(setq large-file-warning-threshold nil)
 ;; util function
 (defun recursive-file-list (dir)
   (let ((files-list '())
@@ -26,4 +28,3 @@
 
 
 (provide 'de-files)
-

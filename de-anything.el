@@ -7,8 +7,7 @@
 (setq anything-idle-delay 0.01)
 (setq anything-input-idle-delay 0)
 (setq anything-candidate-number-limit 128)
-(require 'anything-gtags)
-(add-hook 'anything-after-persistent-action-hook 'which-func-update)
+;;(add-hook 'anything-after-persistent-action-hook 'which-func-update)
 ;;(require 'anything-etags)
 
 ;; dabbrev
@@ -61,19 +60,6 @@
     (volatile)
     (delayed)))
 
-
-;; switch buffer
-(global-set-key (kbd "C-x b")
-  (lambda() (interactive)
-    (anything
-     :prompt "Switch to: "
-     :candidate-number-limit 10                 ;; up to 10 of each
-     :sources
-     '( anything-c-source-buffers               ;; buffers
-        anything-c-source-recentf               ;; recent files
-        anything-c-source-bookmarks             ;; bookmarks
-        anything-c-source-files-in-current-dir+ ;; current dir
-        anything-c-source-locate))))            ;; use 'locate'
 
 ;; occur
 (global-set-key (kbd "C-c o")
@@ -142,16 +128,45 @@
     ;(requires-pattern . 3)
     (multiline)))
 
-(global-set-key (kbd "C-c k")  ;; i -> info
+(global-set-key (kbd "C-c y")  
   (lambda () (interactive)
     (anything
-      :prompt "Info about: "
-      :candidate-number-limit 3
+      :prompt "last killed: "
+      :candidate-number-limit 20
       :sources
-      '( anything-c-source-kill-ring))))
+      '(anything-c-source-kill-ring))))
 
 ;; fuzzy match
 (require 'anything-match-plugin)
+
+;;
+(require 'anything-multi-occur)
+(global-set-key (kbd "C-c m")  'anything-multi-occur)
+
+
+;; switch buffer
+(defvar anything-c-source-gtags-files
+  '((name . "gtags selected files")
+    (candidates . (lambda ()
+                    (start-process-shell-command "global" (current-buffer) "GTAGSROOT=/root/ynetesov/cmdaemon/branches/dellsettings global -P")))
+;;    (delayed)
+    (type . file)
+    (action . (lambda (entry)
+                (find-file entry)))))
+
+
+(global-set-key (kbd "C-x b")
+  (lambda() (interactive)
+    (anything
+     :prompt "Switch to: "
+     :candidate-number-limit 10                 ;; up to 10 of each
+     :sources
+     '( anything-c-source-buffers               ;; buffers
+        anything-c-source-recentf               ;; recent files
+        anything-c-source-bookmarks             ;; bookmarks
+        anything-c-source-files-in-current-dir+ ;; current dir
+        anything-c-source-locate))))            ;; use 'locate'
+
 
 
 
