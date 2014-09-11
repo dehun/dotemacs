@@ -6,7 +6,7 @@
 
 ;; recentf
 (require 'recentf)
-(setq recentf-max-saved-items 512)
+(setq recentf-max-saved-items 4096)
 (recentf-mode t)
 
 ;; uniquify
@@ -15,5 +15,8 @@
   uniquify-buffer-name-style 'post-forward
   uniquify-separator "::")
 
+
+;; multi-mode
+(require 'multi-mode)
 
 (provide 'de-buffers)

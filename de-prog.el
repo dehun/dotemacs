@@ -28,7 +28,9 @@
 
 ;; different languages customizations
 (require 'de-cpp)
+(require 'de-perl)
 (require 'de-python)
+(require 'de-sh)
 
 ;; flymake cursor
 (require 'flymake-cursor)

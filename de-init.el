@@ -9,9 +9,9 @@
 (require 'de-vcs)
 (require 'de-anything)
 (require 'de-prog)
+(require 'de-sh)
 (require 'de-doc)
 (require 'de-chat)
 ;;(require 'de-www)
-
 
 (provide 'de-init)

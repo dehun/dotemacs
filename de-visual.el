@@ -20,7 +20,7 @@
 
 ;; font
 (set-default-font "-unknown-Inconsolata-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 105)
 
 ;; menus
 (menu-bar-mode -1)

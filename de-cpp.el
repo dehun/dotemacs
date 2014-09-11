@@ -1,20 +1,29 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
+;;(require 'etags)
+(add-to-list 'load-path "~/.emacs.d/elpa/ggtags-0.8.5")
+(require 'ggtags)
+
+(defun de-ggtags-setup ()
+  (ggtags-mode))
+
 
 (defun my-c-mode-common-hook ()
-  (gtags-mode)
+  (de-ggtags-setup)
   (c-set-offset 'substatement-open 0)
+;;  (local-set-key "\M-." 'gtags-find-tag)
   (setq c-basic-offset 2)
   (setq c-indent-level 2)
   (c-set-offset 'arglist-intro '+)
   (setq tab-stop-list '(2 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
   (setq tab-width 4)
-  (setq indent-tabs-mode nil)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
+  (c-set-offset 'arglist-intro '+)
+  (setq indent-tabs-mode nil))
 
 (defun my-c-mode-with-tabs-common-hook ()
   (c-set-offset 'substatement-open 0)
   (setq c-basic-offset 4)
+;;  (local-set-key "\M-." 'gtags-find-tag)
   (setq c-indent-level 4)
   (c-set-offset 'arglist-intro '+)
   (setcdr (assoc 'arglist-cont-nonempty c-offsets-alist)
@@ -22,7 +31,8 @@
   (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
   (setq tab-width 4)
   (setq indent-tabs-mode t)
-  (add-hook 'before-save-hook 'delete-trailing-whitespace))
+;;  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+)
 
 (defun my-c-mode-hook ()
   (linum-mode)

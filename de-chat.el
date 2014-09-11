@@ -1,7 +1,12 @@
+;; jabber support
+(require 'jabber)
+
+
+;; notifications for erc
+
 (require 'de-notifications)
 
 (de-notify-init)
-
 
 (defun bytes-to-string (bytes)
   (apply 'concat (mapcar `byte-to-string bytes)))
@@ -14,7 +19,3 @@
 (de-notify "erc" "initialized erc notifications system")
 
 (provide 'de-chat)
-
-
-
-
