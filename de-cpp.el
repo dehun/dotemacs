@@ -1,17 +1,30 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;;(require 'etags)
-(add-to-list 'load-path "~/.emacs.d/elpa/ggtags-0.8.5")
-(require 'ggtags)
+;;(add-to-list 'load-path "~/.emacs.d/elpa/ggtags-0.8.5")
+(require 'gtags)
+;;(require 'anything-gtags)
+(require 'auto-complete)
 
-(defun de-ggtags-setup ()
-  (ggtags-mode))
+(require 'de-helm)
+(require 'helm-gtags)
+
+
+(defun setup-gtags-key-bindings ()
+  (helm-gtags-mode)
+  (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
+  (local-set-key "\C-cl" 'helm-gtags-parse-file))
 
 
 (defun my-c-mode-common-hook ()
-  (de-ggtags-setup)
+  (setup-gtags-key-bindings)
+
+  (setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
+  (auto-complete-mode)
   (c-set-offset 'substatement-open 0)
-;;  (local-set-key "\M-." 'gtags-find-tag)
+
+  (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
+
   (setq c-basic-offset 2)
   (setq c-indent-level 2)
   (c-set-offset 'arglist-intro '+)
@@ -21,9 +34,12 @@
   (setq indent-tabs-mode nil))
 
 (defun my-c-mode-with-tabs-common-hook ()
+  (setup-gtags-key-bindings)
+
   (c-set-offset 'substatement-open 0)
   (setq c-basic-offset 4)
-;;  (local-set-key "\M-." 'gtags-find-tag)
+  (auto-complete-mode)
+  (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
   (setq c-indent-level 4)
   (c-set-offset 'arglist-intro '+)
   (setcdr (assoc 'arglist-cont-nonempty c-offsets-alist)
@@ -45,27 +61,27 @@
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 
-(require 'anything)
-(require 'anything-include)
-(setq anything-include-save-file "~/.anything-include")
-(setq anything-include-max-saved-items 1000)
+;; (require 'anything)
+;; (require 'anything-include)
+;; (setq anything-include-save-file "~/.anything-include")
+;; (setq anything-include-max-saved-items 1000)
 
 ;; boost documentation
 (require 'w3m)
 (require 'de-files)
 
-(defvar boost-documentation-directory
-  "/usr/share/doc/libboost1.55-doc/"
-  "defines boost directory location")
+;; (defvar boost-documentation-directory
+;;   "/usr/share/doc/libboost1.55-doc/"
+;;   "defines boost directory location")
 
-(defvar anything-c-source-boost-html
-  '((name . "boost html documentation")
-    (requires-pattern . 3)
-    (candidates . (lambda ()
-                    (recursive-file-list boost-documentation-directory)))
-    (delayed)
-    (action . (lambda (entry)
-                (w3m-browse-url entry)))))
+;; (defvar anything-c-source-boost-html
+;;   '((name . "boost html documentation")
+;;     (requires-pattern . 3)
+;;     (candidates . (lambda ()
+;;                     (recursive-file-list boost-documentation-directory)))
+;;     (delayed)
+;;     (action . (lambda (entry)
+;;                 (w3m-browse-url entry)))))
 
 ;; provide
 (provide 'de-cpp)

@@ -4,7 +4,7 @@
 
 (add-hook 'sh-mode-hook 'de-sh-hook)
 
-(require 'de-anything)
+;;(require 'de-anything)
 
 
 (defvar anything-c-eshell-command-history
