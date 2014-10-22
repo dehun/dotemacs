@@ -145,16 +145,6 @@
 
 
 ;; switch buffer
-(defvar anything-c-source-gtags-files
-  '((name . "gtags selected files")
-    (candidates . (lambda ()
-                    (start-process-shell-command "global" (current-buffer) "GTAGSROOT=/root/ynetesov/cmdaemon/branches/dellsettings global -P")))
-;;    (delayed)
-    (type . file)
-    (action . (lambda (entry)
-                (find-file entry)))))
-
-
 (global-set-key (kbd "C-x b")
   (lambda() (interactive)
     (anything

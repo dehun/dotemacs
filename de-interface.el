@@ -4,9 +4,10 @@
 (defun nothing () ())
 (global-set-key "\C-x\C-c" 'nothing)
 
-;; smex
+;; commands
 (require 'smex)
 (global-set-key "\M-x" 'smex)
+
 
 ;; a bit more comfortable yes no
 (fset 'yes-or-no-p 'y-or-n-p)
