@@ -13,11 +13,14 @@
 (defun setup-gtags-key-bindings ()
   (helm-gtags-mode)
   (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
+  (local-set-key "\C-cf" 'helm-gtags-find-files)
+  (local-set-key "\C-cr" 'helm-gtags-resume)
   (local-set-key "\C-cl" 'helm-gtags-parse-file))
 
 
 (defun my-c-mode-common-hook ()
   (setup-gtags-key-bindings)
+
 
   (setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
   (auto-complete-mode)
@@ -47,8 +50,8 @@
   (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
   (setq tab-width 4)
   (setq indent-tabs-mode t)
-;;  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-)
+  ;;  (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  )
 
 (defun my-c-mode-hook ()
   (linum-mode)

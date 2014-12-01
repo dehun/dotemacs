@@ -4,6 +4,10 @@
 (require 'color-theme)
 (require 'de-color-theme-zenburn)
 (color-theme-initialize)
+
+
+;;(load-theme 'tangotango t)
+;;(color-theme-tangotango)
 (color-theme-de-zenburn)
 ;;(color-theme-pok-wog)
 
@@ -21,6 +25,7 @@
 ;; font
 (set-default-font "-unknown-Inconsolata-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 (set-face-attribute 'default nil :height 105)
+
 
 ;; menus
 (menu-bar-mode -1)

@@ -33,10 +33,10 @@
 (require 'de-sh)
 
 ;; flymake cursor
-;; (require 'flymake-cursor)
-;; (custom-set-variables
-;;      '(help-at-pt-timer-delay 0.01)
-;;      '(help-at-pt-display-when-idle '(flymake-overlay)))
+(require 'flymake-cursor)
+(custom-set-variables
+     '(help-at-pt-timer-delay 0.01)
+     '(help-at-pt-display-when-idle '(flymake-overlay)))
 
 
 ;; our 'project' system
