@@ -18,8 +18,8 @@
   (local-set-key "\C-c\C-b" 'py-send-buffer)
   (local-set-key "\C-cj" 'semantic-ia-fast-jump)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (modify-syntax-entry ?_ "_")
-  (linum-mode))
+  (modify-syntax-entry ?_ "_"))
+;;  (linum-mode))
 (add-hook 'python-mode-hook 'de-python-mode-hook)
 
 (require 'pymacs)
@@ -62,7 +62,7 @@
 (defvar python-documentation-directory
   "/usr/share/doc/python2.7/html/"
   "defines python docs directory location")
-    
+
 (defvar anything-c-source-python-html
   '((name . "python html documentation")
     (requires-pattern . 3)
