@@ -21,7 +21,7 @@
 
 
 ;; c++11 lambdas and enum class
-(require 'google-c-style)
+;;(require 'google-c-style)
 (defadvice c-lineup-arglist (around my activate)
   "Improve indentation of continued C++11 lambda function opened as argument."
   (setq ad-return-value
@@ -65,17 +65,28 @@
 ;; gtags
 (defun setup-gtags-key-bindings ()
   (helm-gtags-mode)
+  (local-set-key "\C-ce" 'helm-gtags-select)
   (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
   (local-set-key "\C-cf" 'helm-gtags-find-files)
   (local-set-key "\C-cr" 'helm-gtags-resume)
   (local-set-key "\C-cl" 'helm-gtags-parse-file))
 
+;; ac-c-headers
+(require 'auto-complete-c-headers)
 
 (defun my-c-mode-common-hook ()
-;;  (flymake-clang-c++-load)
+  ;;  (flymake-clang-c++-load)
+  (local-set-key "\M-/" 'auto-complete)
   (setup-gtags-key-bindings)
-  (google-set-c-style)
-  (setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
+  ;;  (google-set-c-style)
+  ;; bright specific
+  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk")
+  ;;
+  (add-to-list 'ac-sources '(ac-source-symbols
+                             ac-source-c-headers
+                             ac-source-words-in-same-mode-buffers
+                             ac-source-filename
+                             ac-source-gtags))
   (auto-complete-mode)
   (c-set-offset 'substatement-open 0)
 
