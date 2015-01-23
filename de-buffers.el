@@ -36,6 +36,41 @@
         :buffer "*helm-everything*"))
 
 (global-set-key "\C-xb"
-                 'de-helm-everything)
+                'de-helm-everything)
+
+(require 'buffer-move)
+(defun de-swap-buffers ()
+  (interactive)
+  (condition-case nil
+      (buf-move-right)
+    (error (buf-move-left))))
+
+(global-set-key "\C-xw"
+                'de-swap-buffers)
+
+;; workgroups
+(require 'workgroups)
+(global-set-key (kbd "C-M-1")
+                'wg-switch-to-index-0)
+(global-set-key (kbd "C-M-2")
+                'wg-switch-to-index-1)
+(global-set-key (kbd "C-M-3")
+                'wg-switch-to-index-2)
+(global-set-key (kbd "C-M-4")
+                'wg-switch-to-index-3)
+(global-set-key (kbd "C-M-5")
+                'wg-switch-to-index-4)
+(global-set-key (kbd "<f1>")
+                'wg-switch-to-index-0)
+(global-set-key (kbd "<f2>")
+                'wg-switch-to-index-1)
+(global-set-key (kbd "<f3>")
+                'wg-switch-to-index-2)
+(global-set-key (kbd "<f4>")
+                'wg-switch-to-index-3)
+(global-set-key (kbd "<f5>")
+                'wg-switch-to-index-4)
+
+;;
 
 (provide 'de-buffers)
