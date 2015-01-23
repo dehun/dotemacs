@@ -1,5 +1,5 @@
 ;; jabber support
-(require 'jabber)
+;;(require 'jabber)
 
 
 ;; notifications for erc

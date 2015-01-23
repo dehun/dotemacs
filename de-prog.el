@@ -31,6 +31,7 @@
 (require 'de-perl)
 (require 'de-python)
 (require 'de-sh)
+(require 'de-haskell)
 
 ;; flymake cursor
 (require 'flymake-cursor)

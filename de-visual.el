@@ -8,8 +8,10 @@
 ;;(load-theme 'tangotango t)
 ;;(color-theme-tangotango)
 ;;(color-theme-de-zenburn)
+;;(load-theme 'smyx t)
 (load-theme 'brin t)
-
+;;(load-theme 'jazz t)
+;;(load-theme 'zenburn t)
 ;;(color-theme-zenburn)
 ;;(color-theme-pok-wog)
 
@@ -35,10 +37,8 @@
 (scroll-bar-mode -1)
 (column-number-mode t)
 
-
-
 ;; a bit faster redisplay
-;;(setq redisplay-dont-pause t)
+(setq redisplay-dont-pause nil)
 
 ;; linum
 (setq linum-format "%d ")
@@ -53,6 +53,18 @@
 (modify-syntax-entry ?^ "($")
 (modify-syntax-entry ?$ ")^")
 (show-paren-mode t)
+
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(helm-selection ((t (:background "black" :underline "peach puff"))))
+ '(helm-source-header ((t (:background "gray10" :foreground "dark gray" :weight bold :height 1.3 :family "Sans Serif"))))
+ '(linum ((t (:inherit (shadow default) :foreground "#666666"))))
+ '(minibuffer-prompt ((t (:foreground "burlywood")))))
 
 
 (provide 'de-visual)

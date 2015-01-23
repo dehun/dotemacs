@@ -8,8 +8,61 @@
 
 (require 'de-helm)
 (require 'helm-gtags)
+(require 'flymake)
+
+;; xcscope
+(require 'xcscope)
+(cscope-setup)
+(require 'helm-cscope)
+
+;; fun with brackets and stuff
+(font-lock-add-keywords 'c++-mode
+        '(( "," . font-lock-keyword-face )))
 
 
+;; c++11 lambdas and enum class
+(require 'google-c-style)
+(defadvice c-lineup-arglist (around my activate)
+  "Improve indentation of continued C++11 lambda function opened as argument."
+  (setq ad-return-value
+        (if (and (equal major-mode 'c++-mode)
+                 (ignore-errors
+                   (save-excursion
+                     (goto-char (c-langelem-pos langelem))
+                     ;; Detect "[...](" or "[...]{". preceded by "," or "(",
+                     ;;   and with unclosed brace.
+                     (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))
+            0                           ; no additional indent
+          ad-do-it)))                   ; default behavior
+
+
+
+;; From Duncan Mac-Vicar's emacs setup:
+;; https://github.com/dmacvicar/duncan-emacs-setup
+(defun flymake-clang-c++-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    (list "clang++" (list "-fsyntax-only" "-fno-color-diagnostics" local-file))))
+
+(defun flymake-clang-c++-load ()
+  (interactive)
+  (message "hello")
+  (unless (eq buffer-file-name nil)
+    (add-to-list 'flymake-allowed-file-name-masks
+                 '("\\.cpp\\'" flymake-clang-c++-init))
+    (add-to-list 'flymake-allowed-file-name-masks
+                 '("\\.cc\\'" flymake-clang-c++-init))
+    (add-to-list 'flymake-allowed-file-name-masks
+                 '("\\.h\\'" flymake-clang-c++-init))
+    (flymake-mode t)))
+
+
+
+
+;; gtags
 (defun setup-gtags-key-bindings ()
   (helm-gtags-mode)
   (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
@@ -19,9 +72,9 @@
 
 
 (defun my-c-mode-common-hook ()
+;;  (flymake-clang-c++-load)
   (setup-gtags-key-bindings)
-
-
+  (google-set-c-style)
   (setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
   (auto-complete-mode)
   (c-set-offset 'substatement-open 0)
@@ -37,6 +90,7 @@
   (setq indent-tabs-mode nil))
 
 (defun my-c-mode-with-tabs-common-hook ()
+;;  (flymake-clang-c++-load)  
   (setup-gtags-key-bindings)
 
   (c-set-offset 'substatement-open 0)
