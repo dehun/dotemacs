@@ -1,15 +1,17 @@
 ;; everything about visual part
 
 ;; color theme
-(require 'color-theme)
-(require 'de-color-theme-zenburn)
+;;(require 'color-theme)
+;;(require 'de-color-theme-zenburn)
 
+(add-to-list 'custom-theme-load-path "./dotemacs/")
+(load-theme 'dehun t)
 
 ;;(load-theme 'tangotango t)
 ;;(color-theme-tangotango)
 ;;(color-theme-de-zenburn)
 ;;(load-theme 'smyx t)
-(load-theme 'brin t)
+;;(load-theme 'brin t)
 ;;(load-theme 'jazz t)
 ;;(load-theme 'zenburn t)
 ;;(color-theme-zenburn)
