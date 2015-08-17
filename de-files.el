@@ -5,9 +5,9 @@
 (add-hook 'dired-mode-hook 'de-dired-hook)
 
 (require 'ido)
-(setq ido-enable-flex-mathing t)
-(setq ido-use-filename-at-point 'guess)
-(ido-mode t)
+;;(setq ido-enable-flex-mathing t)
+;;(setq ido-use-filename-at-point 'guess)
+;;(ido-mode nil)
 
 
 (setq large-file-warning-threshold nil)

@@ -2,28 +2,28 @@
 (unless (>= emacs-major-version 24)
   (error "requires Emacs 24 or later."))
 
-(deftheme dehun "dehun's theme for emacs")
+(deftheme dehun-green "dehun's theme for emacs")
 
   (custom-theme-set-variables
-    'dehun
+    'dehun-green
     '(linum-format " %5i "))
 
-  (let ((background "#14141c")
-        (gutters    "#343d46")
-        (gutter-fg  "#65737e")
-        (gutters-active "#4f5b66")
-        (builtin      "#d08770")
-        (foreground "#c0c5ce")
-        (invisibles "#65737e")
+  (let ((background "#242c24")
+        (gutters    "#444d56")
+        (gutter-fg  "#75838e")
+        (gutters-active "#5f7b66")
+        (builtin      "#e09780")
+        (foreground "#d0eed5")
+        (invisibles "#758e83")
         (lineHighlight "#343d46")
-        (selection  "#4f5b66")
-        (text       "#c0c5ce")
-        (comments   "#65737e")
-        (punctuation "#c0c5ce")
-        (delimiters "#c0c5ce")
-        (operators "#c0c5ce")
-        (keywords "#9acd32")
-        (variables "#bf616a")
+        (selection  "#5f6b76")
+        (text       "#c0cec5")
+        (comments   "#657e73")
+        (punctuation "#c0cec5")
+        (delimiters "#c0cec5")
+        (operators "#c0cec5")
+        (keywords "#baed52")
+        (variables "#bf6a61")
         (functions "#8fa1b3")
         (methods    "#8fa1b3")
         (strings    "#a3be8c")
@@ -31,7 +31,7 @@
         (white     "#ffffff"))
 
   (custom-theme-set-faces
-   'dehun
+   'dehun-green
 
 ;; Default colors
 ;; *****************************************************************************************
@@ -77,7 +77,7 @@
 
 ;; *****************************************************************************************
 
-(provide-theme 'dehun)
+(provide-theme 'dehun-green)
 
 ;; Local Variables:
 ;; no-byte-compile: t

@@ -31,5 +31,28 @@
   (let ((path (read-file-name "path to proj dir: ")))
     (de-open-with-dired-list path "*sources*" ".+\\.lisp$")))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PROJECTILE STUFF GOES HERE
+(require 'projectile)
+(projectile-global-mode)
+(setq projectile-indexing-method 'native)
+(setq projectile-enable-caching t)
+(setq projectile-completion-system 'default)
+
+(add-to-list 'projectile-globally-ignored-files "*.o")
+(add-to-list 'projectile-globally-ignored-files "*.so")
+(add-to-list 'projectile-globally-ignored-files "*.a")
+(add-to-list 'projectile-globally-ignored-files "*.pyc")
+(add-to-list 'projectile-globally-ignored-files "*.pyo")
+
+(setq projectile-globally-ignored-directories
+	  (append projectile-globally-ignored-directories '(".git"
+														".svn"
+														".hg"
+														"build"
+														)))
+
+(projectile-global-mode 1)
+
 
 (provide 'de-proj)

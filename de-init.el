@@ -17,4 +17,5 @@
 (require 'de-chat)
 ;;(require 'de-www)
 
+(require 'de-util)
 (provide 'de-init)

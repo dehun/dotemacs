@@ -25,12 +25,16 @@
 (require 'helm-ls-git)
 (require 'helm-gtags)
 
+(require 'projectile)
+(require 'helm-projectile)
+
 (defun de-helm-everything ()
   (interactive)
-  (helm :sources '(helm-source-buffers-list
+  (helm :sources '(helm-c-source-buffers-list
+                   helm-source-projectile-files-list
                    helm-source-files-in-current-dir
                    helm-source-recentf
-                   helm-source-ls-git
+;;                   helm-source-ls-git
                    ;;                 helm-source-ls-hg
                    helm-source-locate)
         :buffer "*helm-everything*"))
