@@ -74,13 +74,21 @@
 ;; ac-c-headers
 (require 'auto-complete-c-headers)
 
+(defun setup-bright-includes ()
+  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/")
+  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/src/")
+  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/src/entities")
+  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/test/unittests/")
+  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/"))
+
 (defun my-c-mode-common-hook ()
   ;;  (flymake-clang-c++-load)
   (local-set-key "\M-/" 'auto-complete)
   (setup-gtags-key-bindings)
+  (helm-mode)
   ;;  (google-set-c-style)
   ;; bright specific
-  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk")
+  (setup-bright-includes)
   ;;
   (add-to-list 'ac-sources '(ac-source-symbols
                              ac-source-c-headers

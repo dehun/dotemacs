@@ -5,7 +5,7 @@
 ;;(require 'de-color-theme-zenburn)
 
 (add-to-list 'custom-theme-load-path "./dotemacs/")
-(load-theme 'dehun t)
+(load-theme 'dehun-green t)
 
 ;;(load-theme 'tangotango t)
 ;;(color-theme-tangotango)
@@ -30,7 +30,7 @@
 
 ;; font
 (set-default-font "-unknown-Inconsolata-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-(set-face-attribute 'default nil :height 108)
+(set-face-attribute 'default nil :height 110)
 
 
 ;; menus
@@ -40,7 +40,7 @@
 (column-number-mode t)
 
 ;; a bit faster redisplay
-(setq redisplay-dont-pause nil)
+(setq redisplay-dont-pause t)
 
 ;; linum
 (setq linum-format "%d ")
