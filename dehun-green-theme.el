@@ -6,7 +6,7 @@
 
   (custom-theme-set-variables
     'dehun-green
-    '(linum-format " %5i "))
+    '(linum-format " %3i "))
 
   (let ((background "#242c24")
         (gutters    "#444d56")
@@ -56,6 +56,7 @@
    `(font-lock-comment-face           ((t (:foreground ,comments))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,delimiters))))
    `(font-lock-function-name-face     ((t (:foreground ,functions))))
+   `(vertical-border                  ((t (:foreground ,background))))   
    ;; helm stuff
    '(helm-selection ((t (:background "black" :underline "peach puff"))))
    '(helm-match ((t (:foreground "#9acd32"))))
@@ -67,7 +68,6 @@
    `(font-lock-doc-string-face        ((t (:foreground ,strings)))))
 
 ;; *****************************************************************************************
-
    )
 
 ;;;###autoload

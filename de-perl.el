@@ -1,4 +1,4 @@
-(require 'ggtags)
+;;(require 'ggtags)
 
 (add-to-list 'auto-mode-alist '("\\.pl\\'" . cperl-mode))
 

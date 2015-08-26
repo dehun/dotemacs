@@ -6,6 +6,7 @@
 
 (setq jedi:setup-keys t)
 (require 'jedi)
+(jedi:install-server)
 
 
 

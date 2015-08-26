@@ -2,9 +2,11 @@
 
 ;;(require 'etags)
 ;;(add-to-list 'load-path "~/.emacs.d/elpa/ggtags-0.8.5")
-(require 'gtags)
+;;(require 'gtags)
 ;;(require 'anything-gtags)
-(require 'auto-complete)
+;;(require 'auto-complete)
+(require 'company)
+(require 'company-c-headers)
 
 (require 'de-helm)
 (require 'helm-gtags)
@@ -72,18 +74,10 @@
   (local-set-key "\C-cl" 'helm-gtags-parse-file))
 
 ;; ac-c-headers
-(require 'auto-complete-c-headers)
-
-(defun setup-bright-includes ()
-  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/")
-  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/src/")
-  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/src/entities")
-  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/test/unittests/")
-  (add-to-list 'achead:include-directories "~/dev/work/cmdaemon/trunk/"))
+;;(require 'auto-complete-c-headers)
 
 (defun my-c-mode-common-hook ()
   ;;  (flymake-clang-c++-load)
-  (local-set-key "\M-/" 'auto-complete)
   (setup-gtags-key-bindings)
   (helm-mode)
   ;;  (google-set-c-style)
@@ -95,7 +89,7 @@
                              ac-source-words-in-same-mode-buffers
                              ac-source-filename
                              ac-source-gtags))
-  (auto-complete-mode)
+;;  (auto-complete-mode)
   (c-set-offset 'substatement-open 0)
 
   (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
@@ -109,12 +103,12 @@
   (setq indent-tabs-mode nil))
 
 (defun my-c-mode-with-tabs-common-hook ()
-;;  (flymake-clang-c++-load)  
+;;  (flymake-clang-c++-load)
   (setup-gtags-key-bindings)
 
   (c-set-offset 'substatement-open 0)
   (setq c-basic-offset 4)
-  (auto-complete-mode)
+;;  (auto-complete-mode)
   (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
   (setq c-indent-level 4)
   (c-set-offset 'arglist-intro '+)
