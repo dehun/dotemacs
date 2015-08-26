@@ -9,6 +9,10 @@
 (setq recentf-max-saved-items 4096)
 (recentf-mode t)
 
+;; linum
+(require 'linum)
+(global-linum-mode)
+
 ;; uniquify
 (require 'uniquify)
 (setq
@@ -19,10 +23,11 @@
 ;; multi-mode
 ;;(require 'multi-mode)
 
-;; 
+;;
 (require 'helm)
-;;(require 'helm-ls-hg)
+(require 'helm-ls-hg)
 (require 'helm-ls-git)
+(require 'helm-ls-svn)
 (require 'helm-gtags)
 
 (require 'projectile)
@@ -31,13 +36,20 @@
 (defun de-helm-everything ()
   (interactive)
   (helm :sources '(helm-c-source-buffers-list
+                   helm-source-ls-git
+                   helm-source-ls-svn
+;;                   helm-source-hg-list-files
                    helm-source-projectile-files-list
                    helm-source-files-in-current-dir
                    helm-source-recentf
-;;                   helm-source-ls-git
-                   ;;                 helm-source-ls-hg
-                   helm-source-locate)
+                   ;;                   helm-source-locate
+                   )
         :buffer "*helm-everything*"))
+
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t
+      helm-projectile-fuzzy-match t)
+
 
 (global-set-key "\C-xb"
                 'de-helm-everything)

@@ -1,5 +1,7 @@
 (require 'helm)
 (require 'helm-ring)
+(require 'helm-config)
+
 ;;(require 'helm-project)
 
 ;; emacs commands

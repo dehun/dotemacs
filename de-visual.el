@@ -5,7 +5,8 @@
 ;;(require 'de-color-theme-zenburn)
 
 (add-to-list 'custom-theme-load-path "./dotemacs/")
-(load-theme 'dehun-green t)
+(when (display-graphic-p)
+  (load-theme 'dehun-green t))
 
 ;;(load-theme 'tangotango t)
 ;;(color-theme-tangotango)

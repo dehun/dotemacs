@@ -19,3 +19,6 @@
 
 (require 'de-util)
 (provide 'de-init)
+
+
+(require 'de-company)

@@ -2,7 +2,8 @@
 
 ;; disable that fucking exit key
 (defun nothing () ())
-(global-set-key "\C-x\C-c" 'nothing)
+(when (display-graphic-p)
+  (global-set-key "\C-x\C-c" 'nothing))
 
 ;; commands
 (require 'smex)
