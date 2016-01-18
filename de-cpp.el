@@ -93,6 +93,7 @@
   (c-set-offset 'substatement-open 0)
 
   (local-set-key "\M-." 'helm-gtags-find-tag-from-here)
+  (local-set-key "\C-cm" 'ff-get-other-file)
 
   (setq c-basic-offset 2)
   (setq c-indent-level 2)
@@ -105,6 +106,7 @@
 (defun my-c-mode-with-tabs-common-hook ()
 ;;  (flymake-clang-c++-load)
   (setup-gtags-key-bindings)
+  (local-set-key "\C-cm" 'ff-get-other-file)  
 
   (c-set-offset 'substatement-open 0)
   (setq c-basic-offset 4)
