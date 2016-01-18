@@ -6,7 +6,7 @@
 
 (add-to-list 'custom-theme-load-path "./dotemacs/")
 (when (display-graphic-p)
-  (load-theme 'dehun-green t))
+  (load-theme 'dehun-orange t))
 
 ;;(load-theme 'tangotango t)
 ;;(color-theme-tangotango)

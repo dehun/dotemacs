@@ -3,10 +3,10 @@
 (require 'jedi)
 (require 'company-jedi)
 (add-to-list 'company-backends 'company-jedi)
-(require 'helm-company)
+;;(require 'helm-company)
 
-(global-set-key (kbd "M-/")
-                'helm-company)
+;; (global-set-key (kbd "M-/")
+;;                 'helm-company)
 
 (global-company-mode)
 
