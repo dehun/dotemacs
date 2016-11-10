@@ -53,6 +53,8 @@
 														)))
 
 (projectile-global-mode 1)
+(require 'grizzl)
+(setq projectile-completion-system 'grizzl)
 
 
 (provide 'de-proj)

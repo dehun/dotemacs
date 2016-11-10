@@ -3,6 +3,7 @@
 (require 'helm-config)
 
 ;;(require 'helm-project)
+(require 'helm-company)
 
 ;; emacs commands
 (global-set-key"\M-X" 'helm-M-x)

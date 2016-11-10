@@ -25,9 +25,9 @@
 
 ;;
 (require 'helm)
-(require 'helm-ls-hg)
-(require 'helm-ls-git)
-(require 'helm-ls-svn)
+;;(require 'helm-ls-hg)
+;;(require 'helm-ls-git)
+;;(require 'helm-ls-svn)
 (require 'helm-gtags)
 
 (require 'projectile)
@@ -35,9 +35,9 @@
 
 (defun de-helm-everything ()
   (interactive)
-  (helm :sources '(helm-c-source-buffers-list
-                   helm-source-ls-git
-                   helm-source-ls-svn
+  (helm :sources '(helm-source-buffers-list
+                   ;; helm-source-ls-git
+                   ;; helm-source-ls-svn
 ;;                   helm-source-hg-list-files
                    helm-source-projectile-files-list
                    helm-source-files-in-current-dir
@@ -87,6 +87,5 @@
 (global-set-key (kbd "<f5>")
                 'wg-switch-to-index-4)
 
-;;
 
 (provide 'de-buffers)
